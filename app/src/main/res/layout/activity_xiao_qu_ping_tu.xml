@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_xiao_qu_ping_tu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.edu.androidforschool.schoollife.XiaoQuPingTuActivity">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#222222"
+        >
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_launcher"
+            />
+        <TextView
+            android:textColor="#ffffff"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="校区平面图"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/campus_life_bg"
+        >
+     <Spinner
+         android:id="@+id/xiaoqupingmiantuSpinner"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         >
+
+     </Spinner>
+
+        <ImageView
+            android:id="@+id/xiaoqupingmiantu"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/jiaotong"
+            />
+
+        <Button
+            android:textSize="26sp"
+            android:id="@+id/back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="返回"
+            android:background="@null"
+            />
+    </LinearLayout>
+</LinearLayout>

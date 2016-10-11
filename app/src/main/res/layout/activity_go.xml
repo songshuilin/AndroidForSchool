@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_go"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@drawable/chuxingxinxi"
+    tools:context="com.example.edu.androidforschool.GoActivity">
+
+
+    <Button
+        android:gravity="right"
+        android:id="@+id/btn_position"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我的位置"
+        android:background="@null"
+        />
+    <Button
+        android:gravity="right"
+        android:id="@+id/btn_findload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="线路查询"
+        android:background="@null"
+        />
+    <Button
+        android:gravity="right"
+        android:id="@+id/btn_findposition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="位置查询"
+        android:background="@null"
+        />
+
+    <Button
+        android:gravity="right"
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回"
+        android:background="@null"
+        />
+</LinearLayout>
