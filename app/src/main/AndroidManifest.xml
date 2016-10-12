@@ -31,11 +31,7 @@
             android:value="k2fUkl9fwpZGqeB6l0GEyCd4YsWK5IpU" />
 
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".SchoolLifeActivity" />
         <activity android:name=".GoActivity" />
@@ -54,7 +50,15 @@
             android:enabled="true"
             android:process=":remote" />
 
-        <activity android:name=".phone.ShowAllPhoneActivity"></activity>
+        <activity android:name=".phone.ShowAllPhoneActivity" />
+        <activity android:name=".WelcomActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

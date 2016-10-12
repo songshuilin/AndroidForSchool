@@ -3,6 +3,7 @@ package com.example.edu.androidforschool;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Parcelable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -49,6 +50,41 @@ public class PhoneActivity extends AppCompatActivity {
         initDatas();//初始化数据
         adapter = new PhoneAdapter(kindList, infoList, this);
         mExpandableListView.setAdapter(adapter);
+
+        mExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                 final AlertDialog.Builder builder=new AlertDialog.Builder(PhoneActivity.this);
+                builder.setIcon(R.mipmap.ic_launcher);
+                builder.setTitle("电话号码");
+                final String name=kindList.get(groupPosition).getInfo().get(childPosition).getName();
+                final String phone=kindList.get(groupPosition).getInfo().get(childPosition).getPhone();
+                builder.setMessage(phone);
+                builder.setPositiveButton("关闭", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.setNegativeButton("添加到通讯录", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Intent.ACTION_INSERT_OR_EDIT);
+                        intent.setType("vnd.android.cursor.item/person");
+                        intent.setType("vnd.android.cursor.item/contact");
+                        intent.setType("vnd.android.cursor.item/raw_contact");
+                        intent.putExtra(android.provider.ContactsContract.Intents.Insert.NAME, name);
+                        intent.putExtra(android.provider.ContactsContract.Intents.Insert.PHONE, phone);
+                        intent.putExtra(android.provider.ContactsContract.Intents.Insert.PHONE_TYPE, 3);
+                        startActivity(intent);
+                    }
+                });
+
+                builder.setCancelable(false);
+                builder.show();
+                return true;
+            }
+        });
 
         /**
          * 搜索信息

@@ -6,6 +6,8 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.edu.androidforschool.R;
@@ -43,6 +45,20 @@ public class ShowAllPhoneActivity extends AppCompatActivity {
         }
         phoneAdapter=new ShowAllPhoneAdapter(infoList,this);
         mLv.setAdapter(phoneAdapter);
+
+        mLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(Intent.ACTION_INSERT_OR_EDIT);
+                intent.setType("vnd.android.cursor.item/person");
+                intent.setType("vnd.android.cursor.item/contact");
+                intent.setType("vnd.android.cursor.item/raw_contact");
+                intent.putExtra(android.provider.ContactsContract.Intents.Insert.NAME, infoList.get(position).getName());
+                intent.putExtra(android.provider.ContactsContract.Intents.Insert.PHONE, infoList.get(position).getPhone());
+                intent.putExtra(android.provider.ContactsContract.Intents.Insert.PHONE_TYPE, 3);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initWidgets() {
